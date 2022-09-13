@@ -1,3 +1,8 @@
+
+
+//seting up the camp arry to be able to use for the .post .delete .put
+const campItems = ["Tent", "Wood", "SLeeping bag's", "Cooler", ]
+
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -19,19 +24,6 @@ module.exports = {
 
         res.status(200).send(ramdomFortune);
     },
-    // delete
-// setitng up the login 
-    // getLogin: (req, res) => {
-        
-    //     const userName = document.querySelector('userName').value
-    //     const passWord = document.querySelector('password').value
-
-    //    for(let i = 0; i < .length; i)
-    // },
-//         getDropDwn: (req, res) => {
-//        let dropDwnSelect = res.value
-//        console.log(dropDwnSelect)
-//      }
 
 
 }
