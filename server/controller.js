@@ -1,7 +1,7 @@
 
 
 //seting up the camp arry to be able to use for the .post .delete .put
-const campItems = ["Tent", "Wood", "SLeeping bag's", "Cooler", ]
+const campItems = ["Tent", "Wood", "SLeeping bag's", "Cooler"]
 
 module.exports = {
 
@@ -24,7 +24,17 @@ module.exports = {
 
         res.status(200).send(ramdomFortune);
     },
-
+    getCampList: (req, res) => {
+        res.status(200).send(campItems)
+       
+        
+    },
+    addCampItem: (req,res) => {
+        let {item} = req.body
+        campItems.push(item)
+        
+        res.status(200).send(campItems)
+    }
 
 }
 
