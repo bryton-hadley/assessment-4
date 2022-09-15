@@ -29,12 +29,15 @@ module.exports = {
        
         
     },
-    addCampItem: (req,res) => {
+    addNewItem: (req,res) => {
         let {item} = req.body
         campItems.push(item)
         
         res.status(200).send(campItems)
-    }
+    },
+    // upDateHouse: (req, res) => {
+
+    // }
 
 }
 

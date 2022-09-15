@@ -8,6 +8,7 @@ const getCampListbtn = document.getElementById('getCampList')
 const campList = document.getElementById('displayCampList')
 const postForm = document.getElementById('postForm')
 const addItem = document.getElementById('addItem')
+const delete = document.getElementById('deleteButton')
 // Setting the base url 
 const baseURL = `http://localhost:4000`
 
@@ -54,7 +55,7 @@ const getCampList = () => {
 const addNewItem = (event) => {
     event.preventDefault()
 
-    let bodyObj = {
+    let addItem = {
         item: addItem.value
     }
     axios.post(`${baseURL}/api/camplist`)
