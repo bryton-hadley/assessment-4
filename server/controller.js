@@ -1,7 +1,7 @@
 
 
 //seting up the camp arry to be able to use for the .post .delete .put
-const campItems = ["Tent", "Wood", "SLeeping bag's", "Cooler"]
+const campItems = ['Tent', 'Wood', 'Sleeping bags', 'Cooler']
 
 module.exports = {
 
@@ -16,6 +16,7 @@ module.exports = {
     },
     //step 1: creating the getFortune object and giving it paramas
     getFortune: (req, res) => {
+        
         const fortune = ['A fresh start will put you on your way.', 'A friend asks only for your time not your money.', 'A new perspective will come with the new year.', 'A golden egg of opportunity falls into your lap this month.', 'A lifetime of happiness lies ahead of you.', 'A light heart carries you through all the hard times.'];
 
         //setting up ramdom fortune
@@ -25,19 +26,27 @@ module.exports = {
         res.status(200).send(ramdomFortune);
     },
     getCampList: (req, res) => {
+         
         res.status(200).send(campItems)
        
         
     },
     addNewItem: (req,res) => {
+       
         let {item} = req.body
         campItems.push(item)
         
         res.status(200).send(campItems)
     },
-    // upDateHouse: (req, res) => {
+    deleteItem: (req, res) => {
 
-    // }
+        let index = req.params.id 
+
+        campItems.splice(index, 1)
+
+        res.status(200).send(campItems)
+
+    }
 
 }
 

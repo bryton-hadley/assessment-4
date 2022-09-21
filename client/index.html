@@ -6,24 +6,38 @@
   </head>
   <body class="container" id="body">
     
-    
-    
     <p>Add Camping Item!</p>
     
-    <form id="postForm">
+    <form id="addForm">
     
-      <input type="text" id="camingItem" placeholder="Camping Item"  >
+      <input type="text" id="camingItem" placeholder="Camping Item">
       <button id="addItem">Add Camping Item!</button>
       
     </form>
+      
+   
     
     <br></br>
     
     <label for="campList">Get your camping item here!</label>
     <button id="getCampList"> Get your camping list!</button>
-    <section id="displayCampList"></section>  
+    <div id="displayCampList"></div>  
         
       <br></br>
+
+
+      <p>Add Camping Item!</p>
+    
+      <form id="deleteForm">
+      
+        <input type="text" id="deleteItem" placeholder="Delete Camping Item">
+        <button id="deleteItem">Delete Camping Item!</button>
+        
+      </form>
+
+        <br></br>
+    
+
 
       <button id="complimentButton">Get a compliment</button>
       
@@ -31,12 +45,10 @@
 
       <button id ="fortuneButton"> Get Your Fortune!</button>
       
-    </section>
+    
     
 
 
-  <button id="deleteButton"> Delete Here</button>
-    
     
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
