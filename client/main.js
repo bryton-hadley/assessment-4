@@ -9,18 +9,22 @@ const fortuneBtn = document.getElementById('fortuneButton')
 const getCampListbtn = document.getElementById('getCampList')
 const campList = document.getElementById('displayCampList')
 
-//setting up the add item html element
+//selecting up the add item html element
 
 const addItem = document.getElementById('addItem')
 const addForm = document.getElementById('addForm')
 
-//setting up the delete  item html element 
+//selecting up the delete  item html element 
 
 const deleteInput = document.getElementById('deleteItem')
 const deleteForm = document.getElementById('deleteForm')
 
 
-// const delete = document.getElementById('deleteButton')
+// selecting up the edit item html element 
+const editForm = document.getElementById("editForm")
+const editOldItem = document.getElementById("editOldItem")
+const editNewItem = document.getElementById("editNewItem")
+
 
 
 // Setting the base url 
@@ -87,8 +91,11 @@ const addNewItem = (event) => {
         campList.innerHTML = ''
 
         for(let i = 0; i < campItem.length; i++) {
+            
             let newItem = document.createElement('li')
+            
             newItem.textContent = campItem[i]
+            
             campList.appendChild(newItem)
         }
 
@@ -103,7 +110,39 @@ const addNewItem = (event) => {
 
 }
 
+const editCampItem = (event) => {
 
+    event.preventDefault()
+   
+    let editCmpItem = {
+
+        item: editNewItem.value
+    }
+
+    axios.put(`${baseURL}/api/postCamplist/${editOldItem.value}`, editCmpItem)
+    .then((res) => {
+
+        console.log(res.data)
+
+        const campItem = res.data
+        campList.innerHTML = ''
+
+        for(let i = 0; i < campItem.length; i++) {
+
+            let newItem = document.createElement('li')
+
+            newItem.textContent = campItem[i]
+
+            campList.appendChild(newItem)
+        }
+
+        editOldItem.value = ''
+        editNewItem.value = ''
+
+
+    })
+
+}
 
 const deleteItem = (event) => {
 
@@ -114,13 +153,15 @@ const deleteItem = (event) => {
 
         console.log(res.data)
 
-       
         const campItem = res.data
         campList.innerHTML = ''
 
         for(let i = 0; i < campItem.length; i++) {
+
             let newItem = document.createElement('li')
+
             newItem.textContent = campItem[i]
+
             campList.appendChild(newItem)
         }
 
@@ -143,3 +184,6 @@ addForm.addEventListener('submit', addNewItem)
 
 // combine with event listener for the delete item form 
 deleteForm.addEventListener('submit', deleteItem)
+
+// comcombining with event listener for the edit item form
+editForm.addEventListener("submit", editCampItem)

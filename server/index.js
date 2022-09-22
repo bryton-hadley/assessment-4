@@ -7,20 +7,23 @@ app.use(cors());
 
 app.use(express.json());
 
-const { getCompliment, getFortune, getCampList, addNewItem, deleteItem } = require('./controller')
+const { getCompliment, getFortune, getCampList, addNewItem, editCampItem, deleteItem } = require('./controller')
 
 app.get("/api/compliment", getCompliment);
 
 //creating the end point for the getFortune using the .get 
 app.get("/api/fortune", getFortune);
 
-//creating end pionts for cmaplsit 
+//creating end piont for .get method to get the cmaplsit 
 app.get("/api/camplist", getCampList);
 
+//creating a post end point using the .post method 
 app.post("/api/addCamplist", addNewItem);
 
-// app.push("/api/camplist/:id", up );
+//creating an edit end point using the .put method
+app.put("/api/postCamplist/:id", editCampItem )
 
+//creating a delete endpoint using the .delete method
 app.delete("/api/deleteCamplist/:id", deleteItem)
 
 

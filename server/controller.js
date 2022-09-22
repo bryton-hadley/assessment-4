@@ -38,6 +38,17 @@ module.exports = {
         
         res.status(200).send(campItems)
     },
+    editCampItem: (req, res) => {
+
+        let index = req.params.id
+
+        let {item} = req.body
+
+        //adding in the splice method so we can edit 
+        campItems.splice(index, 1, item)
+
+        res.status(200).send(campItems)
+    },
     deleteItem: (req, res) => {
 
         let index = req.params.id 
